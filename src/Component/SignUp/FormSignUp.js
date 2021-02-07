@@ -1,8 +1,9 @@
 import React, { Component } from "react"; 
-import Lock from "../img/lock.svg";
-import "./form-sign-up.css";
 
 import {NavLink} from "react-router-dom";
+
+import Lock from "../img/lock.svg";
+import {Wrapper, FormWrapper, LockLogo, P, Img, H2, Input, RememberWrapper, Label, Button, Navigation, Names } from "./styles"
 
 class FormSignUp extends Component {  
     constructor(props) {  
@@ -23,55 +24,54 @@ class FormSignUp extends Component {
      }  
       render() {  
         return (  
-          <div className="wrapper">
-          <div className="form">  
-         <div className="lock-logo"><img src={Lock} alt="lock-icon"/></div> 
-         <h2>Sign up</h2>
+          <Wrapper>
+          <FormWrapper>  
+         <LockLogo><Img src={Lock} alt="lock-icon"/></LockLogo> 
+         <H2>Sign up</H2>
             <form> 
-            <div className="names">
-            <input   
+            <Names>
+            <Input   
                   type="text"   
                   placeholder="First Name*"
                   name="firstName"
                   onChange={this.onChangeHandler} />  
-                  <input   
+                  <Input
                   type="text"   
                   placeholder="Last Name*"
                   name="lastName"
                   onChange={this.onChangeHandler} />    
               {console.log(this.state.lastName)}
               {console.log(this.state.firstName)}
-            </div>
-            <input   
+            </Names>
+            <Input  
                   type="text"   
                   placeholder="Email Address*"
                   name="email"
                   onChange={this.onChangeHandler} />  
                   {console.log(this.state.email)}
-                  <input   
+                  <Input
                   type="text"   
                   placeholder="Password*" 
+                  className="bottom-input"
                   name="password" 
                   onChange={this.onChangeHandler} />  
                    {console.log(this.state.password)}
-                   <div className="remember-wrapper"> 
-                   <label><p>I want to receive information, marketing</p> <p>promotions and updates via email</p> </label>
-                   
-                   <input className="remember" 
+                   <RememberWrapper > 
+                   <Label for="remember"><P>I want to receive information, marketing</P> <P>promotions and updates via email</P> </Label>
+                   <Input id="remember" className="remember" 
                     type="checkbox"  
                     name="remember"  
                     onChange={this.onChangeHandler}  
                 />  
                    {console.log(this.state.remember)}
-                   </div>
+                   </RememberWrapper>
             </form>   
-            <button>Sign up</button>
-            <div className="navigation">
+            <Button>Sign up</Button>
+            <Navigation>
             <NavLink  to={"/signin"}>Allready have an account? Sign in</NavLink>
-           
-            </div>
-         </div>
-         </div>  
+            </Navigation>
+         </FormWrapper>
+         </Wrapper>  
         );  
         }
 }  

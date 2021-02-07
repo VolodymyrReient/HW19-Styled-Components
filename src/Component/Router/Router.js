@@ -1,9 +1,8 @@
-import FormSign from "./SignIn/FormSign";
-import FormSignUp from "./SignUp/FormSignUp";
-import Forgot from "./ForgotPassword";
 import {BrowserRouter as Router, Route}  from "react-router-dom";
 
-
+import FormSign from "../SignIn/FormSign";
+import FormSignUp from "../SignUp/FormSignUp";
+import Forgot from "../Forgot/ForgotPassword";
 
 const Navigations = () => {
     return (
@@ -24,4 +23,5 @@ const Navigations = () => {
         </Router>
     )
 }
+
 export default Navigations;

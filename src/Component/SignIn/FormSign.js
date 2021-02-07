@@ -1,8 +1,8 @@
-import React, { Component } from "react"; 
-import Lock from "../img/lock.svg";
-import "./form-sign.css";
-
+import React, { Component } from "react";
 import {NavLink} from "react-router-dom";
+
+import Lock from "../img/lock.svg";
+import {Img, H2, Input, RememberWrapper, Label, Wrapper, FormWrapper, LockLogo, Button, NavWrapper} from "./styles"
 
 class FormSign extends Component {  
     constructor(props) {  
@@ -21,41 +21,41 @@ class FormSign extends Component {
      }  
       render() {  
         return (
-          <div className="wrapper">
-          <div className="form">  
-         <div className="lock-logo"><img src={Lock} alt="lock-icon"/></div> 
-         <h2>Sign in</h2>
+          <Wrapper>
+          <FormWrapper>  
+         <LockLogo><Img src={Lock} alt="lock-icon"/></LockLogo> 
+         <H2>Sign in</H2>
             <form>   
-              <input   
+              <Input  
                   type="text"   
                   placeholder="Email Address*"
                   name="email"
                   onChange={this.onChangeHandler} />  
                   {console.log(this.state.email)}
-                  <input   
+                  <Input  
                   type="text"   
                   placeholder="Password*" 
-                  name="password" 
+                  name="password"
+                  className="bottom-input"
                   onChange={this.onChangeHandler} />  
                    {console.log(this.state.password)}
-                   <div className="remember-wrapper"> 
-                   <label>Remember me</label>
-                   
-                   <input className="remember" 
+                   <RememberWrapper> 
+                   <Label for="remember">Remember me</Label>
+                   <Input className="remember" id="remember"
                     type="checkbox"  
                     name="remember"  
                     onChange={this.onChangeHandler}  
                 />  
                    {console.log(this.state.remember)}
-                   </div>
+                   </RememberWrapper>
             </form>   
-            <button>Sign in</button>
-            <div className="nav-wrapper">
+            <Button>Sign in</Button>
+            <NavWrapper>
             <NavLink  to={"/forgot"}>Forgot password?</NavLink>
             <NavLink  to={"/signup"}>Don't have an account? Sign Up</NavLink>
-            </div>
-         </div>
-         </div>  
+            </NavWrapper>
+         </FormWrapper>
+         </Wrapper>  
         );  
         }
 }  
